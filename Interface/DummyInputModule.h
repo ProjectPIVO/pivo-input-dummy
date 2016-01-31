@@ -2,6 +2,7 @@
 #define PIVO_DUMMY_MODULE_H
 
 #include "InputModule.h"
+#include "InputModuleFeatures.h"
 
 extern void(*LogFunc)(int, const char*, ...);
 
@@ -11,7 +12,10 @@ class DummyInputModule : public InputModule
         DummyInputModule();
         ~DummyInputModule();
 
+        virtual void ReportFeatures(IMF_SET &set);
         virtual bool LoadFile(const char* file);
+        virtual void GetClassTable(std::vector<ClassEntry> &dst);
+        virtual void GetFunctionTable(std::vector<FunctionEntry> &dst);
 
     protected:
         //
