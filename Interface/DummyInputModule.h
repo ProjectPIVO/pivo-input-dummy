@@ -13,7 +13,7 @@ class DummyInputModule : public InputModule
         ~DummyInputModule();
 
         virtual void ReportFeatures(IMF_SET &set);
-        virtual bool LoadFile(const char* file);
+        virtual bool LoadFile(const char* file, const char* binaryFile);
         virtual void GetClassTable(std::vector<ClassEntry> &dst);
         virtual void GetFunctionTable(std::vector<FunctionEntry> &dst);
 

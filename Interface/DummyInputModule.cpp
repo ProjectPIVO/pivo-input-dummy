@@ -36,7 +36,7 @@ void DummyInputModule::ReportFeatures(IMF_SET &set)
     IMF_ADD(set, IMF_FLAT_PROFILE);
 }
 
-bool DummyInputModule::LoadFile(const char* file)
+bool DummyInputModule::LoadFile(const char* file, const char* binaryFile)
 {
     LogFunc(LOG_WARNING, "WARNING: You are using dummy module! No valid results will be supplied!");
 
