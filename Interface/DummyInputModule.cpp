@@ -75,3 +75,25 @@ void DummyInputModule::GetFunctionTable(std::vector<FunctionEntry> &dst)
     dst[4].name = "SomeMethod";
     dst[4].classId = 2;
 }
+
+void DummyInputModule::GetFlatProfileData(std::vector<FlatProfileRecord> &dst)
+{
+    dst.clear();
+
+    dst.resize(3);
+
+    dst[0].functionId = 2;
+    dst[0].timeTotal = 4;
+    dst[0].timeTotalPct = 0.5f;
+    dst[0].callCount = 10;
+
+    dst[1].functionId = 3;
+    dst[1].timeTotal = 3;
+    dst[1].timeTotalPct = 0.375f;
+    dst[1].callCount = 5;
+
+    dst[2].functionId = 1;
+    dst[2].timeTotal = 1;
+    dst[2].timeTotalPct = 0.125f;
+    dst[2].callCount = 8;
+}
