@@ -12,6 +12,8 @@ class DummyInputModule : public InputModule
         DummyInputModule();
         ~DummyInputModule();
 
+        virtual const char* ReportName();
+        virtual const char* ReportVersion();
         virtual void ReportFeatures(IMF_SET &set);
         virtual bool LoadFile(const char* file, const char* binaryFile);
         virtual void GetClassTable(std::vector<ClassEntry> &dst);

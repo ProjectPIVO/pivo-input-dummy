@@ -27,6 +27,16 @@ DummyInputModule::~DummyInputModule()
     //
 }
 
+const char* DummyInputModule::ReportName()
+{
+    return "Dummy input module";
+}
+
+const char* DummyInputModule::ReportVersion()
+{
+    return "1.0";
+}
+
 void DummyInputModule::ReportFeatures(IMF_SET &set)
 {
     // nullify set
@@ -34,6 +44,7 @@ void DummyInputModule::ReportFeatures(IMF_SET &set)
 
     // add features we support
     IMF_ADD(set, IMF_FLAT_PROFILE);
+    IMF_ADD(set, IMF_CALL_GRAPH);
 }
 
 bool DummyInputModule::LoadFile(const char* file, const char* binaryFile)
