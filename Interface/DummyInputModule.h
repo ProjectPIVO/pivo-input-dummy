@@ -17,6 +17,7 @@ class DummyInputModule : public InputModule
         virtual void GetClassTable(std::vector<ClassEntry> &dst);
         virtual void GetFunctionTable(std::vector<FunctionEntry> &dst);
         virtual void GetFlatProfileData(std::vector<FlatProfileRecord> &dst);
+        virtual void GetCallGraphMap(CallGraphMap &dst);
 
     protected:
         //
