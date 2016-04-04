@@ -45,6 +45,8 @@ void DummyInputModule::ReportFeatures(IMF_SET &set)
     // add features we support
     IMF_ADD(set, IMF_FLAT_PROFILE);
     IMF_ADD(set, IMF_CALL_GRAPH);
+    IMF_ADD(set, IMF_CALL_TREE);
+    IMF_ADD(set, IMF_USE_SECONDS);
 }
 
 bool DummyInputModule::LoadFile(const char* file, const char* binaryFile)
@@ -124,4 +126,26 @@ void DummyInputModule::GetCallGraphMap(CallGraphMap &dst)
     dst[1][3] = 8;
     dst[0][3] = 1;
     dst[3][2] = 4;
+}
+
+void DummyInputModule::GetCallTreeMap(CallTreeMap &dst)
+{
+    dst.clear();
+
+    CallTreeNode* ctn = new CallTreeNode, *ctn2 = new CallTreeNode;
+
+    ctn2->functionId = 2;
+    ctn2->parent = ctn;
+    ctn2->sampleCount = 100;
+    ctn2->timeTotal = 3.2;
+    ctn2->timeTotalPct = 0.11;
+
+    ctn->functionId = 1;
+    ctn->parent = nullptr;
+    ctn->sampleCount = 100;
+    ctn->timeTotal = 5.2;
+    ctn->timeTotalPct = 0.2;
+    ctn->children[2] = ctn2;
+
+    dst[1] = ctn;
 }
